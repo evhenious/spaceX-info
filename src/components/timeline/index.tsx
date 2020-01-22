@@ -1,5 +1,15 @@
-import Timeline from './timelineContainer';
+import React, { Suspense } from 'react';
+import TLine from './timelineContainer';
 
-export {
-  Timeline
+// TODO improve fallback
+const fallback = <div>Loading</div>;
+
+const Timeline = () => {
+  return (
+    <Suspense fallback={fallback}>
+      <TLine />
+    </Suspense>
+  );
 };
+
+export {Timeline};

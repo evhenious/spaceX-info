@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Timeline } from './components/timeline';
 import Header from './components/header';
+import withApollo from './components/apollo';
 
 const App: React.FC = () => {
   return (
@@ -12,4 +13,4 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
+export default withApollo(App);
