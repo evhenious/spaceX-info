@@ -1,12 +1,13 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import logo from '../../SpaceX-Logo.svg';
 import './style.scss';
 
-import { gql } from "apollo-boost";
-import { useQuery } from "react-apollo-hooks";
+import { useQuery } from 'react-apollo-hooks';
+import { getSummary } from '../apollo/queries';
 
 interface iQueryLaunches {
   errors: any;
+  loading: boolean;
   data: {
     company: {
       summary: string
@@ -14,16 +15,8 @@ interface iQueryLaunches {
   }
 }
 
-const query = gql`
-  {
-    company {
-      summary
-    }
-  }
-`;
-
 const Header = () => {
-  const { errors, data } = useQuery(query, {suspend: true}) as iQueryLaunches;
+  const { errors, data, loading } = useQuery(getSummary) as iQueryLaunches;
   if(errors) {
     console.log(errors);
     return null;
@@ -32,13 +25,9 @@ const Header = () => {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-        <p>{data.company.summary}</p>
+        {loading ? '' : <p className={'App-header-summary'} >{data.company.summary}</p>}
     </header>
   );
 };
 
-const Suspended = () => <Suspense fallback={<div>loading</div>}>
-  <Header />
-</Suspense>;
-
-export default Suspended;
+export default Header;
