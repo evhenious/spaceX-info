@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import logo from '../../SpaceX-Logo.svg';
-import './style.css';
+import './style.scss';
 
 import { gql } from "apollo-boost";
 import { useQuery } from "react-apollo-hooks";

@@ -1,17 +1,16 @@
 @import '~foundation-sites/scss/foundation';
 @include foundation-global-styles;
+@import '../../style_global.scss';
 
-$white: #7adffb;
-$black: #282c34;
 $global-radius: 10px;
 
-$timeline-color: $white;
+$timeline-color: $turquise;
 $timeline-transition: all 0.25s ease-in;
-$timeline-item-card-bg: $white;
+$timeline-item-card-bg: $turquise;
 $timeline-item-font-color: $black;
 $timeline-item-card: false;
 $timeline-item-card-radius: $global-radius;
-$background-color: rgb(226, 226, 226);
+$background-color: $gray;
 
 %clearfix {
     &::after,
@@ -87,7 +86,7 @@ $background-color: rgb(226, 226, 226);
         }
 
         .timeline-content {
-            padding: 20px;
+            padding: 17px 20px 20px 20px;
             text-align: right;
             transition: $timeline-transition;
             width: 45%;
