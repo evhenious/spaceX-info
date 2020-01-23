@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from '../../SpaceX-Logo.svg';
+import logo from '../../icons/SpaceX-Logo.svg';
+import arrowDown from '../../icons/arrow-down-sign-to-navigate.svg';
 import './style.scss';
 
 import { useQuery } from 'react-apollo-hooks';
@@ -25,7 +26,8 @@ const Header = () => {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-        {loading ? '' : <p className={'App-header-summary'} >{data.company.summary}</p>}
+      {loading ? '' : <p className={'App-header-summary'} >{data.company.summary}</p>}
+      {loading ? '' : <img className={'App-scroll-sign'} src={arrowDown}/>}
     </header>
   );
 };

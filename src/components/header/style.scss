@@ -30,3 +30,11 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+.App-scroll-sign {
+  position: absolute;
+  height: 7vh;
+  bottom: 1vh;
+  fill: $gray;
+  animation: fadein 2s;
+}
