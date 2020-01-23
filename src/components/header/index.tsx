@@ -27,7 +27,7 @@ const Header = () => {
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       {loading ? '' : <p className={'App-header-summary'} >{data.company.summary}</p>}
-      {loading ? '' : <img className={'App-scroll-sign'} src={arrowDown}/>}
+      {loading ? '' : <img className={'App-scroll-sign'} src={arrowDown} alt={'scroll down'} />}
     </header>
   );
 };

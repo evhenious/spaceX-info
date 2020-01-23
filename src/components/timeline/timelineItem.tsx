@@ -12,7 +12,7 @@ const TimelineItem = (props: Props) => {
   return (
     <div className="timeline-item">
       <div className="timeline-icon">
-        <img src={keyIcon} />
+        <img src={keyIcon} alt={'key'} />
       </div>
       <div className={`timeline-content ${props.right ? 'right' : ''}`}>
         <p className="timeline-content-date">{props.title}</p>

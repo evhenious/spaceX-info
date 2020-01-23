@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import TLine from './timelineContainer';
 
 // TODO improve fallback
-const fallback = <div>Loading</div>;
+const fallback = null;
 
 const Timeline = () => {
   return (

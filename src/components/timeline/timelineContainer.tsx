@@ -30,7 +30,7 @@ const Timeline = () => {
       { data.launches.map((item, index) => {
         const { mission_name, details, launch_date_utc } = item;
         const date = new Date(launch_date_utc).toLocaleDateString();
-        return <TimelineItem title={`${date} - ${mission_name}`} content={details || 'no details available'} right={Boolean(index % 2)} />
+        return <TimelineItem key={`${launch_date_utc}`} title={`${date} - ${mission_name}`} content={details || 'no details available'} right={Boolean(index % 2)} />
       }) }
     </div>
   );
