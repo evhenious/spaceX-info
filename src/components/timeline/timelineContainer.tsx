@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.scss';
 import TimelineItem from './timelineItem';
+import moment from 'moment';
 
 import { useQuery } from 'react-apollo-hooks';
 import { getLaunchesTimeline } from '../apollo/queries';
@@ -29,8 +30,13 @@ const Timeline = () => {
     <div className="timeline">
       { data.launches.map((item, index) => {
         const { mission_name, details, launch_date_utc } = item;
-        const date = new Date(launch_date_utc).toLocaleDateString();
-        return <TimelineItem key={`${launch_date_utc}`} title={`${date} - ${mission_name}`} content={details || 'no details available'} right={Boolean(index % 2)} />
+        const date = moment(launch_date_utc).format("MMM Do YY");
+        return <TimelineItem 
+          key={`${launch_date_utc}`} 
+          title={`${date} - ${mission_name}`} 
+          content={details || 'no details available'} 
+          right={Boolean(index % 2)} 
+        />
       }) }
     </div>
   );
