@@ -33,7 +33,7 @@ $background-color: $gray;
     &::before {
         background: $timeline-color;
         content: '';
-        height: 100%;
+        height: calc(100% - 2*#{rem-calc(16)});
         left: 50%;
         position: absolute;
         top: 0;
@@ -59,7 +59,6 @@ $background-color: $gray;
     }
 
     .timeline-item {
-        margin-bottom: 50px;
         position: relative;
         @extend %clearfix;
 
@@ -90,6 +89,7 @@ $background-color: $gray;
             text-align: right;
             transition: $timeline-transition;
             width: 45%;
+            border-bottom: 3px solid $turquise;
 
             @if $timeline-item-card == true {
                 background: $timeline-item-card-bg;
@@ -131,7 +131,28 @@ $background-color: $gray;
             }
         }
     }
+
+    .load-more {
+        font-size: rem-calc(16);
+        margin-top: 5px;
+        color: $black;
+        &:hover {
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+
+    .progress {
+        background-color: $turquise;
+        height: 3px;
+        animation: roll 2s infinite;
+    }
 }
+
+@keyframes roll {
+    from { width: 0%; }
+    to   { width: 100%; }
+  }
 
 @include breakpoint(small only) {
     .timeline {
