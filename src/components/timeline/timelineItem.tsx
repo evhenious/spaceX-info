@@ -10,13 +10,14 @@ interface Props {
 
 const TimelineItem = (props: Props) => {
   return (
-    <div className="timeline-item">
-      <div className="timeline-icon">
+    <div className='timeline-item'>
+      <div className='timeline-icon'>
         <img src={keyIcon} alt={'key'} />
       </div>
       <div className={`timeline-content ${props.right ? 'right' : ''}`}>
-        <p className="timeline-content-date">{props.title}</p>
+        <p className='timeline-content-date'>{props.title}</p>
         <p>{props.content}</p>
+        <a className='link' onClick={() => {console.log('useless click now')}}>Details...</a>
       </div>
     </div>
   );
