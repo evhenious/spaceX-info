@@ -9,11 +9,12 @@ const getSummary = gql`
 `;
 
 const getLaunchesTimeline = gql`
-  {
-    launches(sort: "launch_date_utc", limit: 10) {
+  query Launches($offset: Int) {
+    launches(sort: "launch_date_utc", limit: 15, offset: $offset) {
       launch_date_utc
       mission_name
       details
+      id
     }
   }
 `;
