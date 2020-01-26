@@ -5,22 +5,7 @@ import moment from 'moment';
 
 import { useQuery } from 'react-apollo-hooks';
 import { getLaunchesTimeline } from '../apollo/queries';
-
-interface iLaunch {
-  launch_date_utc: string;
-  mission_name: string;
-  details: string;
-  id: string;
-}
-
-interface iQueryLaunches {
-  errors: any;
-  loading: boolean;
-  data: {
-    launches: iLaunch[]
-  },
-  fetchMore(options: {[key: string]: any}): void;
-}
+import { iLaunch, iQueryLaunches } from '../apollo/interface';
 
 const initialFetchParams = {
   suspend: true,
@@ -58,7 +43,7 @@ const Timeline = () => {
         return <TimelineItem
           key={`${launch_date_utc}`}
           title={`${date} - ${mission_name}`}
-          content={details || 'no details available'}
+          content={details}
           right={Boolean(index % 2)}
         />
       }) }
