@@ -38,8 +38,11 @@
   position: absolute;
   height: 5vh;
   bottom: 1vh;
-  fill: $gray;
   animation: fadein 2s;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .disclaimor {
