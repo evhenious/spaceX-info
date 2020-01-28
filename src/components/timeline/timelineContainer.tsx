@@ -1,11 +1,10 @@
 import React from 'react';
 import './style.scss';
-import TimelineItem from './timelineItem';
-import moment from 'moment';
 
 import { useQuery } from 'react-apollo-hooks';
 import { getLaunchesTimeline } from '../apollo/queries';
 import { iLaunch, iQueryLaunches } from '../apollo/interface';
+import TimelineMarkup from './timelineMarkup';
 
 const initialFetchParams = {
   suspend: true,
@@ -33,25 +32,10 @@ const Timeline = () => {
         }
       }
     });
-  }
+  };
 
   return (
-    <div className='timeline'>
-      { data.launches.map((item, index) => {
-        const { mission_name, details, launch_date_utc } = item;
-        const date = moment(launch_date_utc).format('MMM Do YY');
-        return <TimelineItem
-          key={`${launch_date_utc}`}
-          title={`${date} - ${mission_name}`}
-          content={details}
-          right={Boolean(index % 2)}
-        />
-      }) }
-      <div>
-        <div className={'load-more'} onClick={onLoadMore}>LOAD MORE</div>
-        { loading ? <div className={'progress'} /> : null }
-      </div>
-    </div>
+    <TimelineMarkup launches={data.launches} loading={loading} onLoadMore={onLoadMore} />
   );
 };
 
