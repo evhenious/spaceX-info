@@ -17,12 +17,13 @@ const TimelineMarkup = (props: Props) => {
   return (
     <div className='timeline'>
       { launches.map((item, index) => {
-        const { mission_name, details, launch_date_utc } = item;
+        const { mission_name, details, launch_date_utc, id } = item;
         const date = moment(launch_date_utc).format('MMM Do YY');
         return <TimelineItem
           key={`${launch_date_utc}`}
           title={`${date} - ${mission_name}`}
           content={details}
+          launchID={id}
           right={Boolean(index % 2)}
         />
       }) }

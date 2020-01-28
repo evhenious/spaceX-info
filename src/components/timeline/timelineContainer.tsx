@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, Dispatch } from 'react';
 import './style.scss';
 
 import { useQuery } from 'react-apollo-hooks';
@@ -12,8 +12,19 @@ const initialFetchParams = {
   notifyOnNetworkStatusChange: true
 };
 
+interface iContext {
+  launchID: string;
+  setLaunchID: Dispatch<any> | null;
+}
+
+export const Context = React.createContext<iContext>({ launchID: '', setLaunchID: null });
+
 const Timeline = () => {
   const { errors, data, fetchMore, loading } = useQuery(getLaunchesTimeline, initialFetchParams) as iQueryLaunches;
+
+  // TODO use this selected id to fetch details and draw
+  const [selectedLaunchID, setSelectedLaunchID] = useState<string>('');
+  console.log(`selectedLaunchID: ${selectedLaunchID}`);
 
   if(errors) {
     console.log(errors);
@@ -35,7 +46,9 @@ const Timeline = () => {
   };
 
   return (
-    <TimelineMarkup launches={data.launches} loading={loading} onLoadMore={onLoadMore} />
+    <Context.Provider value={{ launchID: selectedLaunchID, setLaunchID: setSelectedLaunchID }}>
+      <TimelineMarkup launches={data.launches} loading={loading} onLoadMore={onLoadMore} />
+    </Context.Provider>
   );
 };
 
