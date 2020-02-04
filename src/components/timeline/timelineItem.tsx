@@ -1,7 +1,7 @@
 import React, { useContext, useCallback } from 'react';
 import './style.scss';
 import keyIcon from '../../icons/key.svg';
-import { Context } from './timelineContainer';
+import { Context } from '../../contextProvicer';
 
 interface Props {
   title: string;

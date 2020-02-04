@@ -3,12 +3,15 @@ import './App.scss';
 import { Timeline } from './components/timeline';
 import Header from './components/header';
 import withApollo from './components/apollo';
+import { ContextProvider } from './contextProvicer';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Header />
-      <Timeline />
+      <ContextProvider>
+        <Header />
+        <Timeline />
+      </ContextProvider>
     </div>
   );
 }

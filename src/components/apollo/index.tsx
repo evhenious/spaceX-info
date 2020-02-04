@@ -8,7 +8,9 @@ const client = new ApolloClient({
 });
 
 const withApollo = (Component: React.FC) => {
-    return (props: any) => <ApolloProvider client={client}>{<Component {...props}/>}</ApolloProvider>
+  return (props: any) => <ApolloProvider client={client}>
+    { <Component {...props}/> }
+  </ApolloProvider>
 };
 
 export default withApollo;
