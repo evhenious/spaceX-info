@@ -11,6 +11,7 @@ const getSummary = gql`
 const getLaunchesTimeline = gql`
   query Launches($offset: Int) {
     launches(sort: "launch_date_utc", limit: 15, offset: $offset) {
+      launch_success
       launch_date_utc
       mission_name
       details
@@ -22,10 +23,10 @@ const getLaunchesTimeline = gql`
 const getLaunchData = gql`
   query Launch($id: ID!) {
     launch(id: $id) {
+      details
       launch_site {
         site_name_long
       }
-      launch_success
       rocket {
         rocket_name
         rocket_type

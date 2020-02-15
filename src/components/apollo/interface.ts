@@ -13,6 +13,7 @@ export interface iGeneralInfo extends iQueryResponse {
 }
 
 export interface iLaunch {
+  launch_success: boolean;
   launch_date_utc: string;
   mission_name: string;
   details: string;
@@ -27,10 +28,10 @@ export interface iQueryLaunches extends iQueryResponse {
 }
 
 export interface iLaunchData {
+  details: string;
   launch_site: {
     site_name_long: string
   },
-  launch_success: boolean,
   rocket: {
     rocket_name: string,
     rocket_type: string

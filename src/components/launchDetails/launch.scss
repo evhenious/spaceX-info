@@ -6,10 +6,73 @@
   position: sticky;
   top: 0px;
   height: 100vh;
-  width: 100vw;
-  background-color: $black;
+  background-color: rgba($gray, .8);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .blur {
+    background-color: $black;
+    padding: 0 10px;
+  }
 
   .close {
     color: $white;
+    margin-bottom: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: calc(10px + 2vmin);
+    margin-bottom: 20px;
+
+    img.loading {
+      display: none;
+    }
+  }
+
+  .info {
+    color: $lightBlueGray;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+  }
+
+  .details {
+    margin-top: 10px;
+    font-size: calc(10px + 1.8vmin);
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.spinner:after {
+  content: " ";
+  display: block;
+  width: 68px;
+  height: 68px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: spinner 1.2s linear infinite;
+}
+@keyframes spinner{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

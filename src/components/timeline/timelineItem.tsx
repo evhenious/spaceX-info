@@ -8,27 +8,32 @@ interface Props {
   content: string;
   launchID: string;
   right?: boolean;
+  success: boolean;
 }
 
 const TimelineItem: React.FC<Props> = (props) => {
   const { setLaunchID } = useContext(Context);
-  const { launchID } = props;
+  const { launchID, success, content, title } = props;
 
   const doClick = useCallback(() => {
     setLaunchID && setLaunchID(launchID);
   }, [launchID, setLaunchID]);
 
-  const description = props.content || 'no details available';
+  let description = (content || 'NoFind details available');
+  if (description.split(' ').length > 17)
+    description = description.split(' ').slice(0, 17).join(' ') + '...';
+
   return (
     <div className='timeline-item'>
       <div className='timeline-icon'>
         <img src={keyIcon} alt={'key'} />
       </div>
       <div className={`timeline-content ${props.right ? 'right' : ''}`}>
-        <p className='timeline-content-date'>{props.title}</p>
+        <p className='timeline-content-date'>{title}</p>
+        <p>{`${!success ? 'Not' : ''} Successful`}</p>
         <p>{description}</p>
-        { props.content &&
-          <a className='link' onClick={doClick}>Details...</a>
+        { content &&
+          <a className='link' onClick={doClick}>See more info</a>
         }
       </div>
     </div>
