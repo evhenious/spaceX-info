@@ -10,7 +10,7 @@ interface Props {
   right?: boolean;
 }
 
-const TimelineItem = (props: Props) => {
+const TimelineItem: React.FC<Props> = (props) => {
   const { setLaunchID } = useContext(Context);
   const { launchID } = props;
 

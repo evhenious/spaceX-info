@@ -11,7 +11,7 @@ interface Props {
   onLoadMore(): void;
 }
 
-const TimelineMarkup = (props: Props) => {
+const TimelineMarkup: React.FC<Props> = (props) => {
   const { launches, loading, onLoadMore } = props;
 
   return (

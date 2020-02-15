@@ -15,7 +15,7 @@ export class ContextProvider extends React.Component<any, iContext> {
 
     this.setLaunchID = (id: string) => {
       this.setState({ launchID: id }, () => {
-        console.log(`new LaunchID: ${this.state.launchID}`);
+        console.log(`LaunchID in context: ${this.state.launchID}`);
       });
     }
 
