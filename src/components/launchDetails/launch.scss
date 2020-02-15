@@ -1,0 +1,15 @@
+@import '../../style_global.scss';
+
+.modal {
+  z-index: 10;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+  background-color: $black;
+
+  .close {
+    color: $white;
+  }
+}

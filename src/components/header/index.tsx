@@ -8,9 +8,9 @@ import { getSummary } from '../apollo/queries';
 import { iGeneralInfo } from '../apollo/interface';
 
 const Header = () => {
-  const { errors, data, loading } = useQuery(getSummary) as iGeneralInfo;
-  if(errors) {
-    console.log(errors);
+  const { error, data, loading } = useQuery(getSummary) as iGeneralInfo;
+  if(error) {
+    console.log(error);
     return null;
   }
 
