@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import TLine from './timelineContainer';
 
 // TODO improve fallback
-const fallback = null;
+const fallback = <div>Loading timeline...</div>;
 
 const Timeline = () => {
   return (
@@ -12,4 +12,4 @@ const Timeline = () => {
   );
 };
 
-export {Timeline};
+export default Timeline;

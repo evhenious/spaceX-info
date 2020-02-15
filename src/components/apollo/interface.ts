@@ -1,5 +1,5 @@
 interface iQueryResponse {
-  errors: any;
+  error?: any;
   loading: boolean;
   data: any;
 }
@@ -13,6 +13,7 @@ export interface iGeneralInfo extends iQueryResponse {
 }
 
 export interface iLaunch {
+  launch_success: boolean;
   launch_date_utc: string;
   mission_name: string;
   details: string;
@@ -24,4 +25,25 @@ export interface iQueryLaunches extends iQueryResponse {
     launches: iLaunch[]
   },
   fetchMore(options: {[key: string]: any}): void;
+}
+
+export interface iLaunchData {
+  details: string;
+  launch_site: {
+    site_name_long: string
+  },
+  rocket: {
+    rocket_name: string,
+    rocket_type: string
+  },
+  links: {
+    article_link: string,
+    mission_patch_small: string
+  }
+}
+
+export interface iQueryLaunchData extends iQueryResponse {
+  data: {
+    launch: iLaunchData
+  }
 }

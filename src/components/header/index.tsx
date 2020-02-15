@@ -8,18 +8,24 @@ import { getSummary } from '../apollo/queries';
 import { iGeneralInfo } from '../apollo/interface';
 
 const Header = () => {
-  const { errors, data, loading } = useQuery(getSummary) as iGeneralInfo;
-  if(errors) {
-    console.log(errors);
+  const { error, data, loading } = useQuery(getSummary) as iGeneralInfo;
+  if(error) {
+    console.log(error);
     return null;
   }
 
+  let headerRef: HTMLElement | null;
+
+  const scrollToList = () => {
+    window.scrollTo({ top: headerRef?.clientHeight, behavior: 'smooth' });
+  };
+
   return (
-    <header className='App-header'>
+    <header className='App-header' ref={ref => {headerRef = ref}}>
       <div className={'disclaimor'}>* All rights to logo and content belong to it's respectable owners. The page created just for fun and training purposes.</div>
       <img src={logo} className='App-logo' alt='logo' />
       {loading ? '' : <p className={'App-header-summary'} >{data.company.summary}</p>}
-      {loading ? '' : <img className={'App-scroll-sign'} src={arrowDown} alt={'scroll down'} />}
+      {loading ? '' : <img className={'App-scroll-sign'} src={arrowDown} alt={'scroll down'} onClick={scrollToList} />}
     </header>
   );
 };
