@@ -19,7 +19,7 @@ const TimelineItem: React.FC<Props> = (props) => {
     setLaunchID && setLaunchID(launchID);
   }, [launchID, setLaunchID]);
 
-  let description = (content || 'NoFind details available');
+  let description = (content || 'No details available');
   if (description.split(' ').length > 17)
     description = description.split(' ').slice(0, 17).join(' ') + '...';
 
