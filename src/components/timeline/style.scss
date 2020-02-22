@@ -24,7 +24,7 @@ $background-color: $gray;
 
 // Timeline
 .timeline {
-  margin: 30px auto;
+  margin: 12px auto 0px auto;
   padding: 0 10px;
   position: relative;
   transition: $timeline-transition;
@@ -127,26 +127,25 @@ $background-color: $gray;
       }
     }
   }
+}
 
-  .load-more {
-    font-size: rem-calc(16);
-    margin-top: 5px;
-    color: $black;
-    &:hover {
-      font-weight: 600;
-      font-style: italic;
-      cursor: pointer;
-    }
+.load-more {
+  font-size: rem-calc(16);
+  color: $black;
+  &:hover {
+    font-weight: 600;
+    font-style: italic;
+    cursor: pointer;
   }
+}
 
-  .progress {
-    background-color: $turquise;
-    height: 3px;
-    animation: roll 2s infinite;
-    -moz-animation: roll 2s infinite;
-    -webkit-animation: roll 2s infinite;
-    -o-animation: roll 2s infinite;
-  }
+.progress {
+  background-color: $turquise;
+  height: var(--height);
+  animation: roll 2s infinite;
+  -moz-animation: roll 2s infinite;
+  -webkit-animation: roll 2s infinite;
+  -o-animation: roll 2s infinite;
 }
 
 @keyframes roll {

@@ -18,7 +18,7 @@ const LaunchMarkup: React.FC<Props> = (props) => {
 
       <div className={'close'} onClick={() => onClose('')}>X</div>
       <div className={'content'}>
-        <img src={links.mission_patch_small} onLoad={() => setIsLoaded(true)} className={isLoaded ? '' : 'loading'}/>
+        <img src={links.mission_patch_small} onLoad={() => setIsLoaded(true)} className={isLoaded ? '' : 'loading'} alt='Patch'/>
         {isLoaded ? null : <div className={'spinner'} />}
         <div className={'info'}>
           <div><u>Launch site:</u> {launch_site.site_name_long}</div>

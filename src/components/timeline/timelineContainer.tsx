@@ -5,6 +5,7 @@ import { useQuery } from 'react-apollo-hooks';
 import { getLaunchesTimeline } from '../apollo/queries';
 import { iLaunch, iQueryLaunches } from '../apollo/interface';
 import TimelineMarkup from './timelineMarkup';
+import ProgressBar from './progressbar';
 
 const initialFetchParams = {
   suspend: true,
@@ -34,7 +35,10 @@ const Timeline = () => {
     });
   };
 
-  return <TimelineMarkup launches={data.launches} loading={loading} onLoadMore={onLoadMore} />;
+  return <>
+    <TimelineMarkup launches={data.launches} />
+    { loading ? <ProgressBar height='16px'/> : <div className={'load-more'} onClick={onLoadMore}>LOAD MORE</div> }
+  </>
 };
 
 export default Timeline;

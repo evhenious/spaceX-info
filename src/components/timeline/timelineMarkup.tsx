@@ -7,12 +7,10 @@ import { iLaunch } from '../apollo/interface';
 
 interface Props {
   launches: iLaunch[];
-  loading: boolean;
-  onLoadMore(): void;
 }
 
 const TimelineMarkup: React.FC<Props> = (props) => {
-  const { launches, loading, onLoadMore } = props;
+  const { launches } = props;
 
   return (
     <div className='timeline'>
@@ -28,10 +26,6 @@ const TimelineMarkup: React.FC<Props> = (props) => {
           success={launch_success}
         />
       }) }
-      <div>
-        <div className={'load-more'} onClick={onLoadMore}>LOAD MORE</div>
-        { loading ? <div className={'progress'} /> : null }
-      </div>
     </div>
   );
 };
