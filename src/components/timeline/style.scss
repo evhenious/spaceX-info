@@ -24,7 +24,7 @@ $background-color: $gray;
 
 // Timeline
 .timeline {
-  margin: 30px auto;
+  margin: 12px auto 0px auto;
   padding: 0 10px;
   position: relative;
   transition: $timeline-transition;
@@ -33,7 +33,7 @@ $background-color: $gray;
   &::before {
     background: $timeline-color;
     content: '';
-    height: calc(100% - 2 *#{rem-calc(16)});
+    height: calc(100% - 1 *#{rem-calc(16)});
     left: 50%;
     position: absolute;
     top: 0;
@@ -127,26 +127,26 @@ $background-color: $gray;
       }
     }
   }
+}
 
-  .load-more {
-    font-size: rem-calc(16);
-    margin-top: 5px;
-    color: $black;
-    &:hover {
-      font-weight: 600;
-      font-style: italic;
-      cursor: pointer;
-    }
+.load-more {
+  font-size: rem-calc(16);
+  padding-bottom: 20px;
+  color: $black;
+  &:hover {
+    font-weight: 600;
+    font-style: italic;
+    cursor: pointer;
   }
+}
 
-  .progress {
-    background-color: $turquise;
-    height: 3px;
-    animation: roll 2s infinite;
-    -moz-animation: roll 2s infinite;
-    -webkit-animation: roll 2s infinite;
-    -o-animation: roll 2s infinite;
-  }
+.progress {
+  background-color: $turquise;
+  height: var(--height);
+  -webkit-animation: roll 2s infinite;
+  -moz-animation: roll 2s infinite;
+  -o-animation: roll 2s infinite;
+  animation: roll 2s infinite;
 }
 
 @keyframes roll {
@@ -160,7 +160,7 @@ $background-color: $gray;
 
 @include breakpoint(small only) {
   .timeline {
-    margin: 30px;
+    margin: 12px 30px 0 30px;
     padding: 0;
     width: 90%;
 

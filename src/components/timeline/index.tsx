@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import TLine from './timelineContainer';
+import ProgressBar from './progressbar';
 
-// TODO improve fallback
-const fallback = <div>Loading timeline...</div>;
+const fallback = <ProgressBar height='10vh'/>;
 
 const Timeline = () => {
   return (
