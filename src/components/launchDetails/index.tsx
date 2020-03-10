@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react';
 import LaunchDetail from './launchDetail';
+import './launch.scss';
 
-// TODO improve fallback
-const fallback = <div>Loading launch</div>;
+const fallback = <div className='spinner loader' />;
 
 const Launch = () => {
   return (

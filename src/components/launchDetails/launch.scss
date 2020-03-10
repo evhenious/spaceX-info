@@ -1,11 +1,23 @@
 @import '../../style_global.scss';
 
+.loader {
+    z-index: 10;
+    position: fixed;
+    top: 50%;
+    width: 100vw;
+
+    &.spinner:after {
+        border: 6px solid $turquise;
+        border-color: $turquise transparent $turquise transparent;
+    }
+}
+
 .modal {
   z-index: 10;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0px;
   height: 100vh;
+  width: 100vw;
   background-color: rgba($gray, .8);
 
   display: flex;
