@@ -26,6 +26,7 @@ $scrollerShift: 100vh - $titlePageHeight;
   -moz-animation: fadein 2s; /* Firefox < 16 */
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
+  padding: 0 10px;
 }
 
 @keyframes fadein {
@@ -53,6 +54,6 @@ $scrollerShift: 100vh - $titlePageHeight;
   top: 1vh;
   color: $gray;
   font-size: 10px;
-  padding-left: 10px;
+  padding: 0 10px;
   align-self: normal;
 }

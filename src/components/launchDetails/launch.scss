@@ -26,7 +26,11 @@
 
   .blur {
     background-color: $black;
-    padding: 0 10px;
+
+    @media (max-width: 768px) {
+      height: inherit;
+      overflow-y: scroll;
+    }
   }
 
   .close {
@@ -37,15 +41,18 @@
     &:hover {
       cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 
   .content {
-    padding: 0 10vw;
+    padding: 0 8vw;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(10px + 1.5vmin);
     margin-bottom: 20px;
 
     img {
@@ -59,6 +66,24 @@
     }
   }
 
+  // for desktops
+  @media (min-width: 800px) {
+    .content {
+      padding: 0 8vw 0 4vw;
+      flex-direction: row;
+      flex-wrap: wrap;
+      font-size: calc(10px + 2vmin);
+
+      img {
+        align-self: center;
+      }
+
+      &>div {
+        margin-left: 4vw;
+      }
+    }
+  }
+
   .info {
     color: $lightBlueGray;
     display: flex;
@@ -66,6 +91,10 @@
     justify-content: center;
     flex: 2;
     min-width: 235px;
+
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
   }
 
   .details {
