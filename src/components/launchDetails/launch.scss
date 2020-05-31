@@ -59,6 +59,7 @@
       flex: 1;
       max-width: 300px;
       max-height: 300px;
+      align-self: center;
 
       &.loading {
         display: none;
@@ -73,10 +74,6 @@
       flex-direction: row;
       flex-wrap: wrap;
       font-size: calc(10px + 2vmin);
-
-      img {
-        align-self: center;
-      }
 
       &>div {
         margin-left: 4vw;
