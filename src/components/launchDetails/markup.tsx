@@ -3,15 +3,17 @@ import './launch.scss';
 import { iLaunchData } from '../apollo/interface';
 
 interface Props {
-  data: iLaunchData;
+  data?: iLaunchData;
   onClose: Function;
 }
 
 const LaunchMarkup: React.FC<Props> = (props) => {
   const { onClose, data } = props;
-  const { links, rocket, launch_site, details } = data;
 
   const [isLoaded, setIsLoaded] = useState(false);
+
+  if (!data) return null;
+  const { links, rocket, launch_site, details } = data;
 
   return <div className={'modal'}>
     <div className={'blur'}>

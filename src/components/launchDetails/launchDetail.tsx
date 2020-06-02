@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Context } from '../../contextProvicer';
 import { useQuery } from 'react-apollo-hooks';
 import { getLaunchData } from '../apollo/queries';
-import { iQueryLaunchData } from '../apollo/interface';
+import { iQueryLaunchData, iLaunchData } from '../apollo/interface';
 import LaunchMarkup from './markup';
 
 const LaunchDetail: React.FC = () => {
@@ -14,7 +14,7 @@ const LaunchDetail: React.FC = () => {
     skip: launchID === ''
   };
 
-  const [launchData, setLaunchData] = useState();
+  const [launchData, setLaunchData] = useState<iLaunchData>();
   const [prevLaunchID, setPrevLaunchID] = useState('');
 
   const { error, data } = useQuery(getLaunchData, params) as iQueryLaunchData;
@@ -22,7 +22,7 @@ const LaunchDetail: React.FC = () => {
   if (launchID === '') return null;
 
   if(error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 

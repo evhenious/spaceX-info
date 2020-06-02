@@ -33,7 +33,7 @@ const TimelineItem: React.FC<Props> = (props) => {
         <p>{`${!success ? 'Not' : ''} Successful`}</p>
         <p>{description}</p>
         { content &&
-          <a className='link' onClick={doClick}>See more info</a>
+          <button className='link' onClick={doClick}>See more info</button>
         }
       </div>
     </div>
