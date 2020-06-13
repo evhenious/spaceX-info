@@ -2,6 +2,7 @@ import React, { useContext, useCallback } from 'react';
 import './style.scss';
 import keyIcon from '../../icons/key.svg';
 import { Context } from '../../contextProvicer';
+import Badge from './Badge'
 
 interface Props {
   title: string;
@@ -30,7 +31,7 @@ const TimelineItem: React.FC<Props> = (props) => {
       </div>
       <div className={`timeline-content ${props.right ? 'right' : ''}`}>
         <p className='timeline-content-date'>{title}</p>
-        <p>{`${!success ? 'Not' : ''} Successful`}</p>
+        <Badge success={success} />
         <p>{description}</p>
         { content &&
           <button className='link' onClick={doClick}>See more info</button>
