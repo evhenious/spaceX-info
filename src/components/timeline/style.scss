@@ -87,7 +87,7 @@ $background-color: $gray;
     }
 
     .timeline-content {
-      padding: 15px 10px 20px 10px;
+      padding: 2px 10px 20px 10px;
       text-align: right;
       transition: $timeline-transition;
       width: 45%;
@@ -112,11 +112,11 @@ $background-color: $gray;
         border-radius: 8px;
 
         &.fine {
-          background-color: #d7d497;
+          background-color: $okay;
         }
 
         &.not-fine {
-          background-color: #ffc1a8;
+          background-color: $bad;
         }
       }
 

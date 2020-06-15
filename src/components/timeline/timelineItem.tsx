@@ -21,8 +21,14 @@ const TimelineItem: React.FC<Props> = (props) => {
   }, [launchID, setLaunchID]);
 
   let description = (content || 'No details available');
-  if (description.split(' ').length > 17)
-    description = description.split(' ').slice(0, 17).join(' ') + '...';
+
+  let wordsAmount = 17;
+  if (window.innerWidth >= 1200) {
+    wordsAmount = 30;
+  }
+
+  if (description.split(' ').length > wordsAmount)
+    description = description.split(' ').slice(0, wordsAmount).join(' ') + '...';
 
   return (
     <div className='timeline-item'>
