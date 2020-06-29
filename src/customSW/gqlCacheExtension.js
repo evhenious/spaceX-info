@@ -1,5 +1,5 @@
 import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
-import { registerRoute } from 'workbox-routing';
+import { registerRoute, NavigationRoute } from 'workbox-routing';
 import Storage from './storage';
 
 /* eslint-disable */
@@ -15,16 +15,17 @@ registerRoute(
 );
 
 async function staleWhileRevalidate(event) {
-  let cachedResponse = await storage.getCache(event.request.clone());
+  const cachedResponse = await storage.getCache(event.request.clone());
 
-  let fetchPromise = fetch(event.request.clone())
+  const fetchPromise = fetch(event.request.clone())
     .then((response) => {
       storage.saveCache(event.request.clone(), response.clone());
       return response;
     })
     .catch((err) => {
       console.warn(err.message);
+      return undefined;
     });
 
-  return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
+  return cachedResponse ? cachedResponse : fetchPromise;
 }

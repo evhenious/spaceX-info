@@ -612,9 +612,9 @@ module.exports = function(webpackEnv) {
       // the HTML & assets that are part of the Webpack build.
       isEnvProduction &&
         new WorkboxWebpackPlugin.InjectManifest({
-          swSrc: './src/customSW/sw.js',
+          swSrc: './src/customSW/gqlCacheExtension.js',
           swDest: 'service-worker.js',
-          exclude: [/\.map$/, /asset-manifest\.json$/],
+          exclude: [/\.map$/, /asset-manifest\.json$/]
         }),
       // TypeScript type checking
       useTypeScript &&

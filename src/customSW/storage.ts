@@ -36,7 +36,8 @@ class Storage {
       return new Response(JSON.stringify(data))
     }
 
-    return null;
+    console.warn('No response in cache');
+    return new Response(JSON.stringify({}));
   }
 }
 
