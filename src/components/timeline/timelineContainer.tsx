@@ -16,7 +16,7 @@ const initialFetchParams = {
 const Timeline = () => {
   const { error, data, fetchMore, loading } = useQuery(getLaunchesTimeline, initialFetchParams) as iQueryLaunches;
 
-  if(error) {
+  if (error) {
     console.log(error);
     return null;
   }
