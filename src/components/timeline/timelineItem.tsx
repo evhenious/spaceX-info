@@ -1,6 +1,6 @@
 import React, { useContext, useCallback } from 'react';
 import './style.scss';
-import keyIcon from '../../icons_assets/key.svg';
+import keyIcon from '../../icons_assets/Star.svg';
 import { Context } from '../../contextProvicer';
 import Badge from './Badge'
 
@@ -38,7 +38,7 @@ const TimelineItem: React.FC<Props> = (props) => {
       <div className={`timeline-content ${props.right ? 'right' : ''}`}>
         <p className='timeline-content-date'>{title}</p>
         <Badge success={success} />
-        <p>{description}</p>
+        <p className='description'>{description}</p>
         { content &&
           <button className='link' onClick={doClick}>See more info</button>
         }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './badge-style.scss';
 
 interface Props {
   success: boolean;
