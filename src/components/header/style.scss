@@ -33,14 +33,14 @@ $scrollerShift: 100vh - $titlePageHeight;
 
 .App-header {
   position: relative;
-  background-image: url('../../icons_assets/Main_BG_1440.png');
+  background-image: url('../../icons_assets/Main_BG_1440.webp');
 
   @media (max-width: 1440px) and (min-width: 768px) {
-    background-image: url('../../icons_assets/Main_BG_1440.png');
+    background-image: url('../../icons_assets/Main_BG_1440.webp');
   }
 
   @media (min-width: 1441px) {
-    background-image: url('../../icons_assets/Main_BG_1920.png');
+    background-image: url('../../icons_assets/Main_BG_1920.webp');
   }
 
   background-position: right;
