@@ -3,13 +3,49 @@
 $titlePageHeight: 97vh;
 $scrollerShift: 100vh - $titlePageHeight;
 
+@mixin mid {
+  position: absolute;
+  left: 60px;
+}
+
+@mixin wide {
+  position: absolute;
+  left: 210px;
+}
+
 .App-logo {
   height: 10vmin;
   pointer-events: none;
+
+  @media (max-width: 1440px) and (min-width: 768px) {
+    @include mid;
+    top: 210px;
+    height: 110px;
+  }
+
+  @media (min-width: 1441px) {
+    @include wide;
+    top: 210px;
+    height: 110px;
+  }
+
 }
 
 .App-header {
-  background-color: $black;
+  position: relative;
+  background-image: url('../../icons_assets/Main_BG_1440.png');
+
+  @media (max-width: 1440px) and (min-width: 768px) {
+    background-image: url('../../icons_assets/Main_BG_1440.png');
+  }
+
+  @media (min-width: 1441px) {
+    background-image: url('../../icons_assets/Main_BG_1920.png');
+  }
+
+  background-position: right;
+  background-repeat: no-repeat;
+
   min-height: $titlePageHeight;
   display: flex;
   flex-direction: column;
@@ -17,16 +53,43 @@ $scrollerShift: 100vh - $titlePageHeight;
   text-align: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: $white;
+  color: $mainDark;
 }
 
 .App-header-summary {
+  top: 407px;
+  width: 748px;
+  text-align: left;
+
+  @media (max-width: 1440px) and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 32px;
+
+    @include mid;
+    height: 128px;
+  }
+
+  @media (min-width: 1441px) {
+    font-size: 30px;
+    line-height: 40px;
+
+    @include wide;
+
+    height: 200px;
+  }
+
+  @media (max-width: 768px) {
+    top: unset;
+    width: unset;
+    padding: 0 10px;
+    text-align: unset;
+  }
+
   margin-top: 25px;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */
   -o-animation: fadein 2s; /* Opera < 12.1 */
   animation: fadein 2s;
-  padding: 0 10px;
 }
 
 @keyframes fadein {
@@ -51,9 +114,22 @@ $scrollerShift: 100vh - $titlePageHeight;
 
 .disclaimor {
   position: absolute;
-  top: 1vh;
+  top: 22px;
   color: $gray;
-  font-size: 10px;
-  padding: 0 10px;
+  font-size: 11px;
+  line-height: 15px;
   align-self: normal;
+
+  @media (max-width: 1440px) and (min-width: 768px) {
+    @include mid;
+  }
+
+  @media (min-width: 1441px) {
+    @include wide;
+  }
+
+  @media (max-width: 768px) {
+    top: 1vh;
+    padding: 0 10px;
+  }
 }

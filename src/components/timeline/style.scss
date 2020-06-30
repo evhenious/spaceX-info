@@ -4,10 +4,10 @@
 
 $global-radius: 10px;
 
-$timeline-color: $turquise;
+$timeline-color: $mainAccent;
 $timeline-transition: all 0.25s ease-in;
-$timeline-item-card-bg: $turquise;
-$timeline-item-font-color: $black;
+$timeline-item-card-bg: $mainAccent;
+$timeline-item-font-color: $mainDark;
 $timeline-item-card: false;
 $timeline-item-card-radius: $global-radius;
 $background-color: $gray;
@@ -103,7 +103,7 @@ $background-color: $gray;
         font-size: 16px;
         line-height: 1.4;
         margin-bottom: 0;
-        color: $black;
+        color: $mainDark;
       }
 
       span {
@@ -138,7 +138,7 @@ $background-color: $gray;
 .load-more {
   font-size: rem-calc(16);
   padding-bottom: 20px;
-  color: $black;
+  color: $mainDark;
   &:hover {
     font-weight: 600;
     font-style: italic;
@@ -147,7 +147,7 @@ $background-color: $gray;
 }
 
 .progress {
-  background-color: $turquise;
+  background-color: $mainAccent;
   height: var(--height);
   -webkit-animation: roll 2s infinite;
   -moz-animation: roll 2s infinite;

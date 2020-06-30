@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../../icons/SpaceX-Logo.svg';
-import arrowDown from '../../icons/arrow-down-sign-to-navigate.svg';
+import logo from '../../icons_assets/SpaceX-Logo-Black.svg';
+import arrowDown from '../../icons_assets/arrow-down-sign-to-navigate.svg';
 import './style.scss';
 
 import { useQuery } from 'react-apollo-hooks';
