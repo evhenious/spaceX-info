@@ -2,13 +2,16 @@ import React from 'react';
 
 interface iContext {
   launchID: string;
-  setLaunchID: Function;
+  setLaunchID(id: string): void;
 }
 
-export const Context = React.createContext<iContext>({ launchID: '', setLaunchID: () => {} });
+export const Context = React.createContext<iContext>({
+  launchID: '',
+  setLaunchID: () => {},
+});
 
 export class ContextProvider extends React.Component<any, iContext> {
-  private setLaunchID: Function;
+  private setLaunchID: (id: string) => void;
 
   constructor(props: any) {
     super(props);
@@ -17,17 +20,15 @@ export class ContextProvider extends React.Component<any, iContext> {
       this.setState({ launchID: id }, () => {
         console.log(`LaunchID in context: ${this.state.launchID}`);
       });
-    }
+    };
 
     this.state = {
       launchID: '',
-      setLaunchID: this.setLaunchID
-    }
+      setLaunchID: this.setLaunchID,
+    };
   }
 
   render() {
-    return <Context.Provider value={this.state}>
-      {this.props.children}
-    </Context.Provider>
+    return <Context.Provider value={this.state}>{this.props.children}</Context.Provider>;
   }
 }

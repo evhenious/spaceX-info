@@ -22,7 +22,7 @@ const getMainHeaderObserver = (name: string, setClassName: Function) => {
   observer.observe(document.querySelector(name) as any);
 
   return observer;
-}
+};
 
 const TimelineMarkup: React.FC<Props> = (props) => {
   const { launches } = props;
@@ -30,15 +30,15 @@ const TimelineMarkup: React.FC<Props> = (props) => {
   const [additionalClassName, setAdditionalClassName] = useState<String>('');
 
   useEffect(() => {
-    const element = document.querySelector(".App-header");
+    const element = document.querySelector('.App-header');
     if (element && !observer) {
-      setObserver(getMainHeaderObserver(".App-header", setAdditionalClassName));
+      setObserver(getMainHeaderObserver('.App-header', setAdditionalClassName));
     }
   }, [observer]);
 
   return (
     <>
-      <ServiceHeader  />
+      <ServiceHeader />
       <div className={`timeline ${additionalClassName}`}>
         {launches.map((item, index) => {
           const { mission_name, details, launch_date_utc, id, launch_success } = item;

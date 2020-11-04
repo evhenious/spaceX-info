@@ -20,11 +20,23 @@ const Header = () => {
   };
 
   return (
-    <header className='App-header' ref={ref => {headerRef = ref}}>
-      <div className={'disclaimor'}>* All rights to logo and content belong to it's respectable owners. The page created just for fun and training purposes.</div>
+    <header
+      className='App-header'
+      ref={(ref) => {
+        headerRef = ref;
+      }}
+    >
+      <div className={'disclaimor'}>
+        * All rights to logo and content belong to it's respectable owners. The page created just for fun and training
+        purposes.
+      </div>
       <img src={logo} className='App-logo' alt='logo' />
-      {(loading || error) ? '' : <p className={'App-header-summary'} >{data.company.summary}</p>}
-      {(loading || error) ? '' : <img className={'App-scroll-sign'} src={arrowDown} alt={'scroll down'} onClick={scrollToList} />}
+      {loading || error ? '' : <p className={'App-header-summary'}>{data.company.summary}</p>}
+      {loading || error ? (
+        ''
+      ) : (
+        <img className={'App-scroll-sign'} src={arrowDown} alt={'scroll down'} onClick={scrollToList} />
+      )}
     </header>
   );
 };

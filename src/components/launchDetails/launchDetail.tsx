@@ -11,7 +11,7 @@ const LaunchDetail: React.FC = () => {
     suspend: true,
     variables: { id: launchID },
     notifyOnNetworkStatusChange: true,
-    skip: launchID === ''
+    skip: launchID === '',
   };
 
   const [launchData, setLaunchData] = useState<iLaunchData>();
@@ -21,17 +21,17 @@ const LaunchDetail: React.FC = () => {
 
   if (launchID === '') return null;
 
-  if(error) {
+  if (error) {
     console.error(error);
     return null;
   }
 
-  if(prevLaunchID !== launchID) {
+  if (prevLaunchID !== launchID) {
     setPrevLaunchID(launchID);
     setLaunchData(data.launch);
   }
 
-  return <LaunchMarkup data={launchData} onClose={setLaunchID}/>;
-}
+  return <LaunchMarkup data={launchData} onClose={setLaunchID} />;
+};
 
 export default LaunchDetail;

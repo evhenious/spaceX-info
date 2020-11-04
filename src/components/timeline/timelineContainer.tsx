@@ -10,7 +10,7 @@ import ProgressBar from './progressbar';
 const initialFetchParams = {
   suspend: true,
   variables: { offset: 0 },
-  notifyOnNetworkStatusChange: true
+  notifyOnNetworkStatusChange: true,
 };
 
 const Timeline = () => {
@@ -24,21 +24,32 @@ const Timeline = () => {
   const onLoadMore = () => {
     fetchMore({
       variables: { offset: data.launches.length },
-      updateQuery: (existingResult: {launches: iLaunch[]}, { fetchMoreResult }: {fetchMoreResult: {launches: iLaunch[]}}) => {
+      updateQuery: (
+        existingResult: { launches: iLaunch[] },
+        { fetchMoreResult }: { fetchMoreResult: { launches: iLaunch[] } }
+      ) => {
         if (!fetchMoreResult) return existingResult;
 
         return {
           ...existingResult,
-          launches: [...existingResult.launches, ...fetchMoreResult.launches]
-        }
-      }
+          launches: [...existingResult.launches, ...fetchMoreResult.launches],
+        };
+      },
     });
   };
 
-  return <>
-    <TimelineMarkup launches={data.launches} />
-    { loading ? <ProgressBar height='16px'/> : <div className={'load-more'} onClick={onLoadMore}>LOAD MORE</div> }
-  </>
+  return (
+    <>
+      <TimelineMarkup launches={data.launches} />
+      {loading ? (
+        <ProgressBar height='16px' />
+      ) : (
+        <div className={'load-more'} onClick={onLoadMore}>
+          LOAD MORE
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Timeline;
