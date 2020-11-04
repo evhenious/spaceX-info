@@ -2,12 +2,22 @@ import React from 'react';
 import './badge-style.scss';
 
 interface Props {
-  success: boolean;
+  success: boolean; // can be undefined or null for scheduled missions in future
 }
 
 const Badge: React.FC<Props> = ({ success }) => {
-  const spanClass = success ? 'fine' : 'not-fine';
-  const text = success ? 'Successful' : 'Failed';
+  let text = 'Planned';
+  let spanClass = 'planned';
+
+  if (success) {
+    text = 'Successful';
+    spanClass = 'fine';
+  }
+
+  if (success === false) {
+    spanClass = 'not-fine';
+    text = 'Failed';
+  }
 
   return <span className={spanClass}>{text}</span>;
 };

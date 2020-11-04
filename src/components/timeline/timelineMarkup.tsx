@@ -45,7 +45,7 @@ const TimelineMarkup: React.FC<Props> = (props) => {
           const date = moment(launch_date_utc).format('MMM Do YY');
           return (
             <TimelineItem
-              key={`${launch_date_utc}`}
+              key={`${launch_date_utc}-${index}`}
               title={`${date} - ${mission_name}`}
               content={details}
               launchID={id}

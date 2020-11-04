@@ -18,4 +18,8 @@ span {
   &.not-fine {
     @include badge($bad);
   }
+
+  &.planned {
+    @include badge($planned);
+  }
 }
