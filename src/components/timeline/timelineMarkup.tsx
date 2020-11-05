@@ -5,12 +5,15 @@ import moment from 'moment';
 
 import { iLaunch } from '../apollo/interface';
 import ServiceHeader from './ServiceHeader';
+import { LAUNCH_ORDER } from './timelineContainer';
 
 interface Props {
   launches: iLaunch[];
+  order: LAUNCH_ORDER;
+  changeOrder(): void;
 }
 
-const getMainHeaderObserver = (name: string, setClassName: Function) => {
+function getMainHeaderObserver(name: string, setClassName: Function) {
   let observer = new IntersectionObserver(([entry]) => {
     if (entry.intersectionRatio === 0) {
       setClassName('bg-scroll-fixed');
@@ -22,10 +25,10 @@ const getMainHeaderObserver = (name: string, setClassName: Function) => {
   observer.observe(document.querySelector(name) as any);
 
   return observer;
-};
+}
 
 const TimelineMarkup: React.FC<Props> = (props) => {
-  const { launches } = props;
+  const { launches, ...restProps } = props;
   const [observer, setObserver] = useState<IntersectionObserver>();
   const [additionalClassName, setAdditionalClassName] = useState<String>('');
 
@@ -38,7 +41,7 @@ const TimelineMarkup: React.FC<Props> = (props) => {
 
   return (
     <>
-      <ServiceHeader />
+      <ServiceHeader {...restProps} />
       <div className={`timeline ${additionalClassName}`}>
         {launches.map((item, index) => {
           const { mission_name, details, launch_date_utc, id, launch_success } = item;

@@ -155,7 +155,7 @@ $timeline-item-card-radius: $global-radius;
 .load-more {
   font-size: rem-calc(16);
   padding-bottom: 20px;
-  color: $mainDark;
+  color: $mainLight;
   &:hover {
     font-weight: 600;
     font-style: italic;
@@ -183,7 +183,8 @@ $timeline-item-card-radius: $global-radius;
 
 @include breakpoint(small only) {
   .timeline {
-    margin: 12px 30px 0 30px;
+    margin: 12px 30px 0 40px;
+
     padding: 0;
     width: 90%;
 
@@ -196,6 +197,7 @@ $timeline-item-card-radius: $global-radius;
         float: right;
         text-align: left;
         width: 90%;
+        padding-right: 20px;
 
         &::before,
         &.right::before {

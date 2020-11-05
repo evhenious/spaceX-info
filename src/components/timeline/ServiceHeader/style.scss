@@ -1,3 +1,6 @@
+@import '../../../style_global.scss';
+
+
 .service-header {
   height: 90px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 5%, rgba(0, 0, 0, 0.7) 10%,  black 30%, black 100%);;
@@ -7,4 +10,15 @@
 
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  padding: 0 30px;
+
+  color: $mainLight;
+}
+
+.order-span {
+  margin: 0 10px;
+  font-size: 16px;
+  color: $mainAccent;
+  cursor: pointer;
 }
