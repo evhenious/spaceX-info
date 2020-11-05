@@ -7,9 +7,9 @@ interface iQueryResponse {
 export interface iGeneralInfo extends iQueryResponse {
   data: {
     company: {
-      summary: string
-    }
-  }
+      summary: string;
+    };
+  };
 }
 
 export interface iLaunch {
@@ -22,28 +22,28 @@ export interface iLaunch {
 
 export interface iQueryLaunches extends iQueryResponse {
   data: {
-    launches: iLaunch[]
-  },
-  fetchMore(options: {[key: string]: any}): void;
+    launches: iLaunch[];
+  };
+  fetchMore(options: { [key: string]: any }): void;
 }
 
 export interface iLaunchData {
   details: string;
   launch_site: {
-    site_name_long: string
-  },
+    site_name_long: string;
+  };
   rocket: {
-    rocket_name: string,
-    rocket_type: string
-  },
+    rocket_name: string;
+    rocket_type: string;
+  };
   links: {
-    article_link: string,
-    mission_patch_small: string
-  }
+    article_link: string;
+    mission_patch_small: string;
+  };
 }
 
 export interface iQueryLaunchData extends iQueryResponse {
   data: {
-    launch: iLaunchData
-  }
+    launch: iLaunchData;
+  };
 }

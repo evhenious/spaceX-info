@@ -7,10 +7,10 @@ interface Props {
 
 const ProgressBar: React.FC<Props> = (props) => {
   const style = {
-    '--height': props.height || '1px'
+    '--height': props.height || '1px',
   };
 
-  return <div className={'progress'} style={style as any}/>
-}
+  return <div className={'progress'} style={style as any} />;
+};
 
 export default ProgressBar;

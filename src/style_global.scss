@@ -1,9 +1,25 @@
-$black: #282c34;
-$gray: rgb(226, 226, 226);
+$mainDark: #000000;
+$gray: #77736C;
 $white: #ffffff;
 
-$turquise: #7adffb;
-$lightBlueGray: #f4f9ff;
+$mainAccent: #E88949;
+$mainLight: #f4f9ff;
 
-$okay: #d7d497;
-$bad: #ffc1a8;
+$okay: #FEF6A6;
+$bad: #FCA8A8;
+$planned: #f4f9ff;
+
+@font-face {
+  font-family: "SpaceFont";
+  src: url("./fonts/amiko-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SpaceFont-semibold";
+  src: url("./fonts/amiko-semibold-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "SpaceFont-bold";
+  src: url("./fonts/amiko-bold-webfont.woff") format("woff");
+}

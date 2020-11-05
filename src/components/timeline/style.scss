@@ -4,13 +4,12 @@
 
 $global-radius: 10px;
 
-$timeline-color: $turquise;
+$timeline-color: $mainAccent;
 $timeline-transition: all 0.25s ease-in;
-$timeline-item-card-bg: $turquise;
-$timeline-item-font-color: $black;
+$timeline-item-card-bg: $mainAccent;
+$timeline-item-font-color: $mainDark;
 $timeline-item-card: false;
 $timeline-item-card-radius: $global-radius;
-$background-color: $gray;
 
 %clearfix {
   &::after,
@@ -24,6 +23,15 @@ $background-color: $gray;
 
 // Timeline
 .timeline {
+  background-image: url('../../icons_assets/Gray_X_Logo.svg');
+  background-repeat: no-repeat;
+  background-size: auto 60vh;
+  background-position-y: 40vh;
+
+  &.bg-scroll-fixed {
+    background-attachment: fixed;
+  }
+
   margin: 12px auto 0px auto;
   padding: 0 10px;
   position: relative;
@@ -48,7 +56,7 @@ $background-color: $gray;
   }
 
   .link {
-    color: $timeline-item-font-color;
+    color: $mainAccent;
     font-weight: bold;
     transition: $timeline-transition;
     cursor: pointer;
@@ -57,10 +65,6 @@ $background-color: $gray;
       box-shadow: 0 1px 0px 0px $timeline-item-font-color;
       transition: $timeline-transition;
       font-style: italic;
-    }
-
-    &::before {
-      content: '> ';
     }
   }
 
@@ -71,22 +75,23 @@ $background-color: $gray;
     .timeline-icon {
       background: $timeline-color;
       border-radius: 50%;
-      height: 50px;
+      height: 60px;
+      width: 60px;
       left: 50%;
-      margin-left: -23px;
+      margin-left: -28px;
       overflow: hidden;
       position: absolute;
       top: 0;
-      width: 50px;
 
       img,
       svg {
         position: relative;
-        top: 13px;
+        top: 9px;
       }
     }
 
     .timeline-content {
+      position: relative;
       padding: 2px 10px 20px 10px;
       text-align: right;
       transition: $timeline-transition;
@@ -101,27 +106,34 @@ $background-color: $gray;
 
       p {
         font-size: 16px;
-        line-height: 1.4;
-        margin-bottom: 0;
-        color: $black;
-      }
 
-      span {
-        font-size: 12px;
-        padding: 3px 7px;
-        border-radius: 8px;
-
-        &.fine {
-          background-color: $okay;
+        @media (min-width: 768px) and (max-width: 1441px) {
+          font-size: 15px;
         }
 
-        &.not-fine {
-          background-color: $bad;
+        line-height: 1.4;
+        margin-bottom: 0;
+        color: $white;
+
+        &.description {
+          position: relative;
+          margin-left: auto;
+
+          @media (min-width: 768px) and (max-width: 1440px) {
+            width: 420px;
+          }
+
+          @media (min-width: 1441px) {
+            width: 490px;
+          }
         }
       }
 
       .timeline-content-date {
-        font-size: 16px;
+        font-size: 20px;
+        line-height: 27px;
+
+        // font-size: 16px;
         font-weight: bold;
         margin-bottom: 0;
         margin-top: 0;
@@ -130,6 +142,11 @@ $background-color: $gray;
       &.right {
         float: right;
         text-align: left;
+
+        .description {
+          margin-left: unset;
+          margin-right: auto;
+        }
       }
     }
   }
@@ -138,7 +155,7 @@ $background-color: $gray;
 .load-more {
   font-size: rem-calc(16);
   padding-bottom: 20px;
-  color: $black;
+  color: $mainLight;
   &:hover {
     font-weight: 600;
     font-style: italic;
@@ -147,7 +164,7 @@ $background-color: $gray;
 }
 
 .progress {
-  background-color: $turquise;
+  background-color: $mainAccent;
   height: var(--height);
   -webkit-animation: roll 2s infinite;
   -moz-animation: roll 2s infinite;
@@ -166,7 +183,8 @@ $background-color: $gray;
 
 @include breakpoint(small only) {
   .timeline {
-    margin: 12px 30px 0 30px;
+    margin: 12px 30px 0 40px;
+
     padding: 0;
     width: 90%;
 
@@ -179,6 +197,7 @@ $background-color: $gray;
         float: right;
         text-align: left;
         width: 90%;
+        padding-right: 20px;
 
         &::before,
         &.right::before {

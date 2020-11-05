@@ -1,0 +1,25 @@
+@import '../../style_global.scss';
+
+@mixin badge($color) {
+  color: $color;
+  border-color: $color;
+}
+
+span {
+  font-size: 12px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 1px solid;
+
+  &.fine {
+    @include badge($okay);
+  }
+
+  &.not-fine {
+    @include badge($bad);
+  }
+
+  &.planned {
+    @include badge($planned);
+  }
+}

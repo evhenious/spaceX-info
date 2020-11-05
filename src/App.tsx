@@ -16,6 +16,6 @@ const App: React.FC = () => {
       </ContextProvider>
     </div>
   );
-}
+};
 
 export default withApollo(App);

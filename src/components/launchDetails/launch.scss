@@ -7,8 +7,8 @@
     width: 100vw;
 
     &.spinner:after {
-        border: 6px solid $turquise;
-        border-color: $turquise transparent $turquise transparent;
+        border: 6px solid $mainAccent;
+        border-color: $mainAccent transparent $mainAccent transparent;
     }
 }
 
@@ -25,7 +25,7 @@
   justify-content: center;
 
   .blur {
-    background-color: $black;
+    background-color: $mainDark;
 
     @media (max-width: 768px) {
       height: inherit;
@@ -82,7 +82,7 @@
   }
 
   .info {
-    color: $lightBlueGray;
+    color: $mainLight;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,8 +112,8 @@
   height: 68px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #fff;
-  border-color: #fff transparent #fff transparent;
+  border: 6px solid $white;
+  border-color: $white transparent $white transparent;
   animation: spinner 1.2s linear infinite;
 }
 @keyframes spinner{

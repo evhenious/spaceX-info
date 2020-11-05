@@ -33,7 +33,7 @@ class Storage {
 
     const data = await get(key, this.store);
     if (data) {
-      return new Response(JSON.stringify(data))
+      return new Response(JSON.stringify(data));
     }
 
     console.warn('No response in cache');
