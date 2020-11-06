@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './launch.scss';
 import { iLaunchData } from '../apollo/interface';
 
 interface Props {
-  data?: iLaunchData;
+  data?: iLaunchData | any;
   onClose(id: string): void;
 }
 
 const LaunchMarkup: React.FC<Props> = (props) => {
-  const { onClose, data } = props;
+  const { onClose, data = {} } = props;
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  if (!data) return null;
-
   const { links, rocket, launch_site, details } = data;
+
+  useEffect(() => {
+    if (!links.mission_patch_small) {
+      setIsLoaded(true);
+    }
+  }, [links]);
+
+  if (Object.keys(data).length === 0) return null;
 
   return (
     <div className={'modal'}>
@@ -23,12 +29,16 @@ const LaunchMarkup: React.FC<Props> = (props) => {
           X
         </div>
         <div className={'content'}>
-          <img
-            src={links.mission_patch_small}
-            onLoad={() => setIsLoaded(true)}
-            className={isLoaded ? '' : 'loading'}
-            alt='Mission Patch'
-          />
+          {links.mission_patch_small ? (
+            <img
+              src={links.mission_patch_small}
+              onLoad={() => setIsLoaded(true)}
+              className={isLoaded ? '' : 'loading'}
+              alt='Mission Patch'
+            />
+          ) : (
+            <div className={'no-patch-info'}>No mission patch</div>
+          )}
           {isLoaded ? null : <div className={'spinner'} />}
           <div className={'info'}>
             <div>

@@ -183,16 +183,30 @@ $timeline-item-card-radius: $global-radius;
 
 @include breakpoint(small only) {
   .timeline {
-    margin: 12px 30px 0 40px;
+    margin: 12px 30px 0 36px;
 
     padding: 0;
     width: 90%;
 
     &::before {
       left: 0;
+      width: 2px;
+      top: 6px;
     }
 
     .timeline-item {
+      .timeline-icon {
+        top: 6px;
+        height: 40px;
+        width: 40px;
+        margin-left: -19px;
+
+        img {
+          top: 6px;
+          max-width: 70%;
+        }
+      }
+
       .timeline-content {
         float: right;
         text-align: left;
@@ -205,6 +219,11 @@ $timeline-item-card-radius: $global-radius;
           border-right: 7px solid $timeline-color;
           left: 10%;
           margin-left: -6px;
+        }
+
+        .timeline-content-date {
+          line-height: 22px;
+          font-size: 16px;
         }
       }
 
