@@ -51,7 +51,7 @@ function Timeline() {
   }, [launchOrder, setLaunchOrder, fetchMore]);
 
   if (error) {
-    console.log(error);
+    console.error(error);
     return null;
   }
 
